@@ -5,7 +5,7 @@ const user = 'John'
 
 /* This is the lastname of the user */
 
-let  = 'Smith'
+const surname  = 'Smith'
 
 
 console.log(user,surname);
