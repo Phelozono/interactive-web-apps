@@ -4,10 +4,10 @@ const add= document.querySelector ('[data-key= "add"]')
 
 
 const substractHandler = () => {
-    number.value= number.value;}
+counter.value= number.value;}
 
     const addHandler = () => {
-        number.value= number.value;}
+        counter.value= number.value;}
 
     substract.addEventListener('click',substractHandler)    
     add.addEventListener('click',addHandler)    
