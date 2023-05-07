@@ -1,36 +1,34 @@
 const FREE_WARNING = 'Free shipping only applies to single customer orders'
 const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
-let NONE_SELECTED = '0'
+const NONE_SELECTED = '0'
 
-if (location = RSA) { shipping === 400 && currency === 'R' }
+let shoes = 300 * 1;
+let toys = 100 * 5;
+let shirts = 150 * 0;
+let batteries = 35 * 2;
+let pens = 5 * 0;
 
-if (location = NAM) {shipping === 600 && currency=== '$'}
-else (shipping = $800)
+let subtotal = shoes + toys + shirts + batteries + pens;
+let shippingCost = null;
+let currency = 'R';
 
-shoes = 300 * 1
-toys - 100 * 5
-shirts = 150 * 'NONE_SELECTED'
-batteries= 35 * 2
-pens = 5 * 'NONE_SELECTED' 
-
-shipping = null
-currency = $
-
-if (shoes + batteries + pens + shirts > 1000) {
-	if (location = NAM && customers < 2) {
-			if (location = RSA) {
-		    shipping = 0 || calcShipping
-		}
-	}
+if (subtotal > 1000) {
+    if (location === 'NAM' && customers < 2) {
+        if (location === 'RSA') {
+            shippingCost = 0 || calcShipping;
+        }
+    }
+    if (shippingCost === 400 && customers !== 1) {
+        console.log(FREE_WARNING);
+    }
+} else {
+    if (location === 'NAM') {
+        shippingCost = 600;
+    } else {
+        shippingCost = 800;
+    }
 }
 
-if(shipping === 0 && customers !== 1 ){
-	 console.log('FREE_WARNING') }
+let totalCost = subtotal + shippingCost;
 
-if (location = 'NK') 
-console.log('banned warning') 
-console.log('price, currency, shoes + batteries + pens + shirts + shipping')
-
-let customers = '1'
-let location = 'RSA'
-let currency = null
+console.log('Total cost: ' + currency + totalCost);
