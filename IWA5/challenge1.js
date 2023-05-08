@@ -1,3 +1,4 @@
+
 const FREE_WARNING = 'Free shipping only applies to single customer orders'
 const BANNED_WARNING = 'Unfortunately we do not ship to your country of residence'
 const NONE_SELECTED = '0'
@@ -15,7 +16,7 @@ let currency = 'R';
 if (subtotal > 1000) {
     if (location === 'NAM' && customers < 2) {
         if (location === 'RSA') {
-            shippingCost = 0 || calcShipping;
+            shippingCost = 600 || calcShipping;
         }
     }
     if (shippingCost === 400 && customers !== 1) {
@@ -28,6 +29,9 @@ if (subtotal > 1000) {
         shippingCost = 800;
     }
 }
+
+if (location === 'NK' ){ console.log(BANNED_WARNING); 
+ }
 
 let totalCost = subtotal + shippingCost;
 
