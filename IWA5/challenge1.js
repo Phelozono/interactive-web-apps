@@ -16,7 +16,7 @@ let currency = 'R';
 if (subtotal > 1000) {
     if (location === 'NAM' && customers < 2) {
         if (location === 'RSA') {
-            shippingCost = 600 || calcShipping;
+            shippingCost = 0 || calcShipping;
         }
     }
     if (shippingCost === 400 && customers !== 1) {

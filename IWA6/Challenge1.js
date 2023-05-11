@@ -7,3 +7,4 @@ const secondaryValid = !isNaN(secondaryPhone)
 
 console.log('Primary phone is valid numerical string:', primaryValid)
 console.log('Secondary phone is valid numerical string:', secondaryValid)
+
