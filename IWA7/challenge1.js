@@ -1,2 +1,2 @@
-const value = "3"
-console.log(3 + 4 + 3)
+let value = "3"
+console.log(parseInt(value) + 4 + parseInt(value));
