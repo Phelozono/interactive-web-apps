@@ -24,17 +24,23 @@ const leo = {
     postal_code: leoPostal
   }
 }
-  
-  const sarah = {
-    name: sarahName + sarahSurname,
-    age: 62,
-    access_id: '6b279ae5-5657-4240-80e9-23f6b635f7a8',
-    balance: sarahBalance,
-    address: {
-      number: sarahNumber,
-      street: sarahStreet,
-      postal_code: sarahPostal
+
+const sarah = {
+ name: sarahName + sarahSurname,
+ age: 62,
+ access_id: '6b279ae5-5657-4240-80e9-23f6b635f7a8',
+ balance: sarahBalance,
+ address: {
+ number: sarahNumber,
+ street: sarahStreet,
+ postal_code: sarahPostal
     }
   }
   console.log(leo);
 console.log(sarah);
+
+
+
+
+
+ 
