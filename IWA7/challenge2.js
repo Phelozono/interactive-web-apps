@@ -1,6 +1,6 @@
-const nickname = null;
-const firstname = "Timothy";
+const nickname = null
+const firstname = null
 let nameToDisplay= nickname  ||  firstname;
 
-console.log(`Good morning ${nameToDisplay}!`);
+console.log(Goodmorning  );
 
