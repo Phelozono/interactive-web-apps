@@ -21,9 +21,6 @@ donuts2.textContent = order2.getAttribute('data-donuts');
 pancakes2.textContent = order2.getAttribute('data-pancakes');
 status2.textContent = order2.getAttribute('data-delivered') === 'true' ? 'Delivered' : 'Pending';
 
-
-
-
 const order3 = document.querySelector('[data-key= "order3"]');
 const biscuits3 = order3.querySelector('.biscuits .count');
 const donuts3 = order3.querySelector('.donuts .count');

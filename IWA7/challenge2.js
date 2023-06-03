@@ -1,6 +1,13 @@
-const nickname = null
-const firstname = null
-let nameToDisplay= nickname  ||  firstname;
+const nickname= "Timmy";
+const firstname = "Timothy";
 
-console.log(Goodmorning  );
+if (nickname && firstname) {
+  console.log(`Good Morning, ${nickname}!`);
+} else if (nickname) {
+  console.log(`Good Morning, ${nickname}!`);
+} else if (firstname) {
+  console.log(`Good Morning, ${firstname}!`);
+} else {
+  console.log("Good Morning!");
+}
 
