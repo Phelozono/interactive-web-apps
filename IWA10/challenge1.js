@@ -65,7 +65,6 @@ let isEarlier = correctDate< holidays[6].date
 console.log('New date is earlier:', isEarlier)
 
 if (isEarlier) holidays[6].date = correctDate
-
 console.log('ID change:', holidays[christmas].id != copied.id === copied.id)
 console.log('Name change:', copied.name)
 console.log('Date change:', holidays[christmas].date != correctDate || correctDate)
