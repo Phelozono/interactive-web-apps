@@ -10,7 +10,7 @@ const logCalc = () => {
     calculated = calculatedAsNumber + 1;
   };
   
-  const calcUser = () => {
+  const calcUser =() => {
     logCalc();
     if (calculated > 2) user = 'John';
     if (calculated > 2) status = 'requesting';
@@ -18,7 +18,7 @@ const logCalc = () => {
   };
   
   const checkUser = () => {
-    if (user && status === 'requesting') {
+    if (user && ( status ===  'requesting') ) {
       console.log(`User: ${user} (${calculated})`);
     }
   };
