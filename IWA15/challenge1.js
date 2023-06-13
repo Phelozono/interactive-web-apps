@@ -8,38 +8,22 @@ const data = {
 }
 
 // Only edit below
-const result = []
+const first = data.lists[0][1];
+const second = data.lists[1][1];
+const third = data.lists[2][1];
+
+const result = [];
 
 const extractBiggest = () => {
-    let biggest = -Infinity
-    let biggestIndex = -1
-    for (let i = 0; i < data.lists.length; i++) {
-        const list = data.lists[i][1]
-        if (list.length === 0) {
-            continue
-        }
-        const lastElement = list[list.length -1]
-        if (lastElement > biggest) {
-            biggest = lastElement
-            biggestIndex = i
-        }
-    }
-   
-    if (biggestIndex === -1) {
-        return null
-    }
-    const list = data.lists[biggestIndex][1]
-    list.pop()
-    return biggest
+	if (first[first.length - 1] > second[second.length - 1]){
+		return first.pop();
+	}
+    if (third[third.length - 1] > 1) {
+		return third.pop();
+	}
+	
+	return second.pop();
 }
-
-
-
-for (let i = 0; i < 15; i++) {
-    result.push(extractBiggest())
-}
-
-
 
 
 // Only edit above

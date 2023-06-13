@@ -8,12 +8,14 @@ function add(a, b) {
   }
   
   function internal() {
-    const added = this.add(this.internal.a, this.internal.b);
-    const multiplied = this.multiply(this.internal.a, this.internal.b);
-    return added * multiplied;
+	const added = this.add(this.internal.a, this.internal.b);
+	const multiplied = this.multiply(added, this.internal.c);
+	console.log(multiplied);
+	return this;
   }
 
-// Not allowed to change below this
+
+// Not allowed to change below this 
 
 const example1 = {
 	internal: {
