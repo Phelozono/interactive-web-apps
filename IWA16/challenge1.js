@@ -1,60 +1,113 @@
+const MONTHS = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
 const data = {
+  response: {
+    requestType: 'FETCH_ATHLETE_DATA',
+    requestBy: 'ALL_MATCHING_ATHLETES',
+    forDisplay: 'BEST_RACES',
+
     data: {
-      "1": {
-        firstName: "Nwabisa",
-        surname: "Masiko",
+      NM372: {
+        firstName: 'Nwabisa',
+        surname: 'Masiko',
+        id: 'NM372',
         races: [
-          { date: "2022-12-02", times: [7, 7, 7, 7] },
-          { date: "2022-11-25", times: [8, 8, 8, 8] },
+          {
+            date: '2022-11-18T20:00:00.000Z',
+            time: [9, 7, 8, 6],
+          },
+          {
+            date: '2022-12-02T20:00:00.000Z',
+            time: [6, 7, 8, 7],
+          },
         ],
       },
-      "2": {
-        firstName: "Schalk",
-        surname: "Venter",
+
+      SV782: {
+        firstName: 'Schalk',
+        surname: 'Venter',
+        id: 'SV782',
         races: [
-          { date: "2022-12-09", times: [9, 9, 9, 10] },
-          { date: "2022-12-02", times: [9, 9, 10, 10] },
-          { date: "2022-11-25", times: [10, 10, 10, 10] },
-          { date: "2022-11-18", times: [11, 11, 11, 11] },
+          {
+            date: '2022-11-18T20:00:00.000Z',
+            time: [10, 8, 3, 12],
+          },
+          {
+            date: '2022-11-25T20:00:00.000Z',
+            time: [6, 8, 9, 11],
+          },
+          {
+            date: '2022-12-02T20:00:00.000Z',
+            time: [10, 11, 4, 8],
+          },
+          {
+            date: '2022-12-09T20:00:00.000Z',
+            time: [9, 8, 9, 11],
+          },
         ],
       },
     },
-  };
-  
-  function formatTime(minutes) {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    return `${hours.toString().padStart(2, "0")}:${mins.toString().padStart(2, "0")}`;
-  }
-  
-  function formatDate(date) {
-    return new Date(date).toLocaleDateString("en-US", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    });
-  }
-  
-  function displayAthleteInfo(id) {
-    const athlete = data.data[id];
-    
-    const totalRaces = athlete.races.length;
-    
-    const latestRace = athlete.races[totalRaces -1];
-    
-    const latestRaceDate = formatDate(latestRace.date);
-    
-    const latestRaceTime = formatTime(latestRace.times.reduce((a,b) => a+b));
-    
-    console.log(`Athlete: ${athlete.firstName} ${athlete.surname}`);
-    
-    console.log(`Total Races: ${totalRaces}`);
-    
-    console.log(`Event Date (Latest): ${latestRaceDate}`);
-    
-    console.log(`Total Time (Latest): ${latestRaceTime}`);
-  }
-  
-  displayAthleteInfo("1");
-  displayAthleteInfo("2");
-  
+  },
+};
+
+const createHtml = (athlete) => {
+  const { firstName, surname, id, races } = athlete;
+  const [latestRace] = races.slice(-1);
+  const { date, time } = latestRace;
+
+  const fragment = document.createDocumentFragment();
+
+  const titleElement = document.createElement('h2');
+  titleElement.textContent = id;
+  fragment.appendChild(titleElement);
+
+  const list = document.createElement('dl');
+
+  const raceDate = new Date(date);
+  const day = raceDate.getDate();
+  const month = MONTHS[raceDate.getMonth()];
+  const year = raceDate.getFullYear();
+
+  const [first, second, third, fourth] = time;
+  const total = first + second + third + fourth;
+
+  const hours = Math.floor(total / 60);
+  const minutes = total % 60;
+
+  list.innerHTML = `
+    <dt>Athlete</dt>
+    <dd>${firstName} ${surname}</dd>
+
+    <dt>Total Races</dt>
+    <dd>${races.length}</dd>
+
+    <dt>Event Date (Latest)</dt>
+    <dd>${day} ${month} ${year}</dd>
+
+    <dt>Total Time (Latest)</dt>
+    <dd>${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}</dd>
+  `;
+
+  fragment.appendChild(list);
+
+  return fragment;
+};
+
+const NM372 = data.response.data.NM372;
+const SV782 = data.response.data.SV782;
+
+document.querySelector('[data-athlete="NM372"]').appendChild(createHtml(NM372));
+document.querySelector('[data-athlete="SV782"]').appendChild(createHtml(SV782));
